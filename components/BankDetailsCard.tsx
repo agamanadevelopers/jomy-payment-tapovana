@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { PaymentDetails } from '@/lib/paymentDetails';
 import { CopyButton } from './CopyButton';
 
@@ -51,7 +52,26 @@ export function BankDetailsCard({ details }: BankDetailsCardProps) {
             value={details.accountName}
             copyLabel="Account Name"
           />
-          <DetailRow label="Bank Name" value={details.bankName} />
+
+          {/* Bank Name row with logo */}
+          <div className="py-4 border-b border-tapovana-border">
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-tapovana-muted mb-2">
+              Bank Name
+            </p>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/southindianbank.png"
+                alt="South Indian Bank"
+                width={120}
+                height={47}
+                className="object-contain h-8 w-auto"
+              />
+              <p className="text-[17px] font-semibold text-tapovana-charcoal leading-tight">
+                {details.bankName}
+              </p>
+            </div>
+          </div>
+
           <DetailRow label="Branch Name" value={details.branchName} />
           <DetailRow
             label="Account Number"
