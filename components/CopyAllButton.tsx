@@ -16,6 +16,7 @@ export function CopyAllButton({ details }: CopyAllButtonProps) {
     const text = formatAllDetails(details);
     try {
       await navigator.clipboard.writeText(text);
+      if (typeof navigator.vibrate === 'function') navigator.vibrate(15);
       setStatus('copied');
       setTimeout(() => setStatus('idle'), 2500);
     } catch {
@@ -34,7 +35,7 @@ export function CopyAllButton({ details }: CopyAllButtonProps) {
             : 'Copy all bank details to clipboard'
         }
         aria-live="polite"
-        className={`w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-200 min-h-[52px] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tapovana-green ${
+        className={`w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl text-sm font-bold uppercase tracking-widest transition-all duration-200 ease-out min-h-[52px] cursor-pointer select-none active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tapovana-green ${
           status === 'copied'
             ? 'bg-emerald-600 text-white shadow-md'
             : status === 'error'

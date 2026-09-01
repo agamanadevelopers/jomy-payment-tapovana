@@ -20,26 +20,30 @@ export default function PaymentPage() {
       <div className="max-w-content mx-auto px-4 sm:px-6 pb-16">
         <LogoHeader />
 
-        <div className="space-y-4">
-          <BankDetailsCard details={paymentDetails} />
+        {/* Bank details — primary content */}
+        <BankDetailsCard details={paymentDetails} />
 
-          <div className="flex flex-col gap-3 pt-1">
-            <CopyAllButton details={paymentDetails} />
-            <WhatsAppShareButton details={paymentDetails} />
-            <DownloadDetailsButton details={paymentDetails} />
-          </div>
-
-          <div className="pt-2">
-            <PaymentSafety />
-          </div>
-
-          <div className="pt-1">
-            <HelpSection
-              whatsappNumber={paymentDetails.whatsappNumber}
-              whatsappDisplay={paymentDetails.whatsappDisplay}
-            />
-          </div>
+        {/* Primary + secondary actions */}
+        <div className="flex flex-col gap-3 mt-4">
+          <CopyAllButton details={paymentDetails} />
+          <WhatsAppShareButton details={paymentDetails} />
+          <DownloadDetailsButton details={paymentDetails} />
         </div>
+
+        {/* Divider */}
+        <div className="my-6 border-t border-tapovana-border" role="separator" aria-hidden="true" />
+
+        {/* Safety notice */}
+        <PaymentSafety />
+
+        {/* Divider */}
+        <div className="my-6 border-t border-tapovana-border" role="separator" aria-hidden="true" />
+
+        {/* Help */}
+        <HelpSection
+          whatsappNumber={paymentDetails.whatsappNumber}
+          whatsappDisplay={paymentDetails.whatsappDisplay}
+        />
 
         <Footer />
       </div>

@@ -14,6 +14,7 @@ export function CopyButton({ value, label }: CopyButtonProps) {
   const handleCopy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(value);
+      if (typeof navigator.vibrate === 'function') navigator.vibrate(10);
       setStatus('copied');
       setTimeout(() => setStatus('idle'), 2000);
     } catch {
@@ -28,7 +29,7 @@ export function CopyButton({ value, label }: CopyButtonProps) {
         onClick={handleCopy}
         aria-label={status === 'copied' ? `${label} copied to clipboard` : `Copy ${label}`}
         aria-live="polite"
-        className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-200 min-h-[36px] min-w-[80px] justify-center active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tapovana-green ${
+        className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-200 ease-out min-h-[36px] min-w-[80px] justify-center cursor-pointer select-none active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tapovana-green ${
           status === 'copied'
             ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
             : status === 'error'

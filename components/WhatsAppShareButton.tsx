@@ -10,7 +10,7 @@ interface WhatsAppShareButtonProps {
 export function WhatsAppShareButton({ details }: WhatsAppShareButtonProps) {
   const handleShare = () => {
     const pageUrl =
-      typeof window !== 'undefined' ? window.location.href : 'https://tapovana.com/payment/landowner-1';
+      typeof window !== 'undefined' ? window.location.href : '';
 
     const message = `Tapovana Farmland - Official Payment Details
 
@@ -34,7 +34,7 @@ ${pageUrl}`;
     <button
       onClick={handleShare}
       aria-label="Share bank details on WhatsApp"
-      className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-whatsapp text-white text-sm font-bold uppercase tracking-widest shadow-sm hover:bg-whatsapp-hover transition-all duration-200 min-h-[52px] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-whatsapp-dark"
+      className="w-full flex items-center justify-center gap-2.5 py-4 px-6 rounded-xl bg-whatsapp text-white text-sm font-bold uppercase tracking-widest shadow-sm hover:bg-whatsapp-hover transition-all duration-200 ease-out min-h-[52px] cursor-pointer select-none active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-whatsapp-dark"
     >
       <Share2 size={18} strokeWidth={2} aria-hidden="true" />
       SHARE ON WHATSAPP
