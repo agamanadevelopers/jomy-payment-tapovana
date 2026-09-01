@@ -7,9 +7,10 @@ interface DetailRowProps {
   value: string;
   mono?: boolean;
   copyLabel?: string;
+  prominent?: boolean;
 }
 
-function DetailRow({ label, value, mono = false, copyLabel }: DetailRowProps) {
+function DetailRow({ label, value, mono = false, copyLabel, prominent = false }: DetailRowProps) {
   return (
     <div className="py-4 border-b border-tapovana-border last:border-b-0">
       <p className="text-[11px] font-semibold uppercase tracking-widest text-tapovana-muted mb-2">
@@ -17,9 +18,9 @@ function DetailRow({ label, value, mono = false, copyLabel }: DetailRowProps) {
       </p>
       <div className="flex items-center justify-between gap-3">
         <p
-          className={`text-[17px] font-semibold text-tapovana-charcoal leading-tight break-all ${
-            mono ? 'font-mono-detail' : ''
-          }`}
+          className={`leading-tight break-all text-tapovana-charcoal ${
+            prominent ? 'text-[19px] font-bold' : 'text-[17px] font-semibold'
+          } ${mono ? 'font-mono-detail' : ''}`}
         >
           {value}
         </p>
@@ -77,6 +78,7 @@ export function BankDetailsCard({ details }: BankDetailsCardProps) {
             label="Account Number"
             value={details.accountNumber}
             mono
+            prominent
             copyLabel="Account Number"
           />
           <DetailRow
