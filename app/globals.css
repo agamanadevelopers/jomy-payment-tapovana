@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: #FAF8F4;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .font-mono-detail {
+    font-family: 'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
+    letter-spacing: 0.08em;
+  }
+}
