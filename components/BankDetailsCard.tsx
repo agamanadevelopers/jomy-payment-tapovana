@@ -58,17 +58,17 @@ export function BankDetailsCard({ details }: BankDetailsCardProps) {
             <p className="text-[11px] font-semibold uppercase tracking-widest text-tapovana-muted mb-2">
               Bank Name
             </p>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between gap-3">
+              <p className="text-[17px] font-semibold text-tapovana-charcoal leading-tight">
+                {details.bankName}
+              </p>
               <Image
                 src="/southindianbank.png"
                 alt="South Indian Bank"
                 width={120}
                 height={47}
-                className="object-contain h-8 w-auto"
+                className="object-contain h-8 w-auto shrink-0"
               />
-              <p className="text-[17px] font-semibold text-tapovana-charcoal leading-tight">
-                {details.bankName}
-              </p>
             </div>
           </div>
 
